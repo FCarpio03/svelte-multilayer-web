@@ -1,31 +1,41 @@
 <script>
-    export let data = {
-        type: '',
-        isYearly: false
-    };
+    export let data;
 
     const plans = [
-        { name: 'Arcade', monthly: 9, yearly: 90 },
-        { name: 'Advanced', monthly: 12, yearly: 120 },
-        { name: 'Pro', monthly: 15, yearly: 150 }
+        { name: 'Básico', monthly: 5, yearly: 50 },
+        { name: 'Estándar', monthly: 7, yearly: 75 },
+        { name: 'Premium', monthly: 10, yearly: 100 }
     ];
 
-    const selectPlan = (plan) => {
-        data = { ...data, type: plan };
-        dispatchEvent(new CustomEvent('update', {
-            detail: { type: plan }
-        }));
+    const handlePlanClick = (planName) => {
+        data.type = planName;
     };
 
-    const toggleBilling = () => {
-        data = { ...data, isYearly: !data.isYearly };
-        dispatchEvent(new CustomEvent('update', {
-            detail: { isYearly: data.isYearly }
-        }));
+    const toggleBilling = (isYearly) => {
+        data.isYearly = isYearly;
     };
 </script>
 
 <style>
+    .step-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        background: #f9f9f9;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .step-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #483EFF;
+        text-align: center;
+    }
+
     .plans {
         display: flex;
         flex-direction: column;
@@ -33,55 +43,85 @@
     }
 
     .plan {
-        padding: 1rem;
         border: 2px solid #ccc;
-        border-radius: 10px;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
         cursor: pointer;
+        transition: all 0.3s ease;
+        background: white;
+        color: #333;
     }
 
     .plan.selected {
         border-color: #483EFF;
-        background-color: #f0f4ff;
+        background: #eaf0ff;
+        box-shadow: 0 0 8px rgba(72, 63, 255, 0.2);
+    }
+
+    .plan-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .plan-price {
+        font-size: 0.95rem;
+        color: #555;
     }
 
     .billing-toggle {
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         gap: 1rem;
-        margin-top: 1.5rem;
+        background: #eaeaea;
+        border-radius: 12px;
+        padding: 0.5rem;
     }
 
-    .toggle-switch {
+    .billing-option {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
         cursor: pointer;
+        font-weight: 600;
+        color: #555;
+        transition: 0.3s ease;
+    }
+
+    .billing-option.active {
+        background: #483EFF;
+        color: white;
     }
 </style>
 
 <div class="step-content">
-    <h2>Selecciona tu plan</h2>
-    <p>Tienes la opción de pagar mensual o anualmente.</p>
+    <h2 class="step-title">Selecciona tu plan</h2>
 
     <div class="plans">
         {#each plans as plan}
             <div
                     class="plan {data.type === plan.name ? 'selected' : ''}"
-                    on:click={() => selectPlan(plan.name)}
+                    on:click={() => handlePlanClick(plan.name)}
             >
-                <strong>{plan.name}</strong><br />
-                {#if data.isYearly}
-                    ${plan.yearly}/año
-                {:else}
-                    ${plan.monthly}/mes
-                {/if}
+                <div class="plan-title">{plan.name}</div>
+                <div class="plan-price">
+                    ${data.isYearly ? plan.yearly + '/año' : plan.monthly + '/mes'}
+                </div>
             </div>
         {/each}
     </div>
 
     <div class="billing-toggle">
-        <span>Mensual</span>
-        <label class="toggle-switch">
-            <input type="checkbox" checked={data.isYearly} on:change={toggleBilling} />
-        </label>
-        <span>Anual</span>
+        <div
+                class="billing-option {data.isYearly ? '' : 'active'}"
+                on:click={() => toggleBilling(false)}
+        >
+            Mensual
+        </div>
+        <div
+                class="billing-option {data.isYearly ? 'active' : ''}"
+                on:click={() => toggleBilling(true)}
+        >
+            Anual
+        </div>
     </div>
 </div>
