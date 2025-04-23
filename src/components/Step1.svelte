@@ -12,13 +12,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
-        padding: 2rem;
+        gap: 0.5rem;
+        padding: 1rem;
         background-color: #fff;
         border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-        max-width: 500px;
-        margin: 0 auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        width: 600px;
     }
 
     .step-title {
@@ -37,42 +36,53 @@
     label {
         font-weight: 600;
         margin-bottom: 0.4rem;
-        color: #333;
+        color: #000000;
         font-size: 0.95rem;
     }
 
     input {
-        padding: 0.9rem;
-        border: 2px solid #ccc;
-        border-radius: 12px;
+        background-color: white;
+        border: 1px solid var(--border);
+        padding: 0.8rem;
+        border-radius: 8px;
+        width: 95%;
         font-size: 1rem;
-        transition: all 0.3s ease;
+        color: black;
     }
 
     input:focus {
         outline: none;
-        border-color: #483EFF;
-        box-shadow: 0 0 5px rgba(72, 63, 255, 0.2);
+        border-color: var(--primary);
+        background-color: #f8f9ff;
+    }
+    .title{
+        color: blue;
+        font-size: 4rem;
     }
 </style>
 
+<div class="main-title">
+
+</div>
+
 <div class="step-content">
+    <h1 class="title"><i class="fa-solid fa-house"></i></h1>
     <h2 class="step-title">Información Personal</h2>
 
     <div class="input-group">
-        <label for="name">Nombre completo</label>
+        <label for="name"><strong>Nombre completo</strong></label>
         <input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Juan Pérez"
+                placeholder="Jose Perez"
                 bind:value={data.name}
                 on:input={handleChange}
         />
     </div>
 
     <div class="input-group">
-        <label for="email">Correo electrónico</label>
+        <label for="email"><strong>Correo electrónico</strong></label>
         <input
                 id="email"
                 name="email"
@@ -84,12 +94,12 @@
     </div>
 
     <div class="input-group">
-        <label for="phone">Teléfono</label>
+        <label for="phone"><strong>Teléfono</strong></label>
         <input
                 id="phone"
                 name="phone"
                 type="tel"
-                placeholder="809-555-1234"
+                placeholder="123-456-7899"
                 bind:value={data.phone}
                 on:input={handleChange}
         />

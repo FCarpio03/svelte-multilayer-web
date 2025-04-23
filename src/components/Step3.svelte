@@ -42,6 +42,7 @@
         flex-direction: column;
         gap: 1.5rem;
         color: var(--text);
+        width: 600px;
     }
 
     h2 {
@@ -51,7 +52,7 @@
     }
 
     p.description {
-        color: #666;
+        color: #000000;
         margin: 0;
     }
 
@@ -75,7 +76,7 @@
 
     .addon.selected {
         border-color: var(--primary);
-        background: var(--background);
+        background: #64cccf;
     }
 
     .addon-info {
@@ -91,18 +92,18 @@
 
     .addon-description {
         font-size: 0.9rem;
-        color: #555;
+        color: #000000;
     }
 
     .addon-price {
         font-weight: bold;
-        color: var(--primary);
+        color: green;
     }
 </style>
 
 <div class="step-content">
-    <h2>Selecciona complementos</h2>
-    <p class="description">Mejora tu experiencia con servicios adicionales.</p>
+    <h2><i class="fa-solid fa-table-columns"></i>Selecciona complementos</h2>
+    <p class="description"><i class="fa-solid fa-money-bill"></i><strong>Mejora tu experiencia con servicios adicionales</strong><i class="fa-solid fa-money-bill"></i></p>
 
     <div class="addons">
         {#each addonsList as addon}

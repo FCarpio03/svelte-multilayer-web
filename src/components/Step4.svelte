@@ -23,8 +23,9 @@
     .step-content {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         color: var(--text);
+        width: 600px;
     }
 
     h2 {
@@ -43,7 +44,7 @@
 
     .section h3 {
         font-size: 1.6rem;
-        color: var(--primary);
+        color: #000000;
         margin-bottom: 1rem;
     }
 
@@ -54,7 +55,7 @@
     }
 
     .addon span {
-        color: #333;
+        color: #0044ff;
     }
 
     .addon-price {
@@ -65,14 +66,13 @@
     .total {
         font-size: 1.2rem;
         font-weight: bold;
-        text-align: right;
-        color: var(--primary);
-        margin-top: 1.5rem;
+        text-align: center;
+        color: green;
     }
 </style>
 
 <div class="step-content">
-    <h2>Resumen de tu suscripción</h2>
+    <h2><i class="fa-solid fa-list-ol"></i> Resumen de tu suscripción</h2>
 
     <div class="section">
         <h3>Información personal</h3>

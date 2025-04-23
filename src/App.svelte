@@ -4,6 +4,7 @@
   import Step3 from './components/Step3.svelte';
   import Step4 from './components/Step4.svelte';
   import Step5 from './components/Step5.svelte';
+  import '@fortawesome/fontawesome-free/css/all.min.css';
 
   let currentStep = 1;
   let isSubmitted = false;
@@ -48,16 +49,17 @@
   };
 
   const confirm = () => {
-    currentStep = 5; // Esto cambia al paso final cuando el botón de confirmar es presionado.
-    isSubmitted = true; // Marca que la confirmación ha sido realizada
+    currentStep = 5;
+    isSubmitted = true;
   };
 </script>
 
 <style>
+
   :root {
-    --primary: #483EFF;
-    --background: #f0f4ff;
-    --text: #333;
+    --primary: #0044ff;
+    --background: #0044ff;
+    --text: #0044ff;
     --card-bg: #fff;
     --border: #ccc;
     --radius: 1rem;
@@ -65,10 +67,23 @@
   }
 
   body {
-    margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--background);
     color: var(--text);
+    background: linear-gradient(-45deg, #483EFF, #6258ff, #837dff, #483EFF);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+  }
+
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
   .app {
@@ -76,8 +91,10 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--background);
     padding: 2rem;
+    background: var(--background);
+    animation: gradientBG 15s ease infinite;
+
   }
 
   .form-container {
@@ -87,12 +104,14 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .steps-indicator {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2.5rem;
   }
 
   .step {
@@ -115,8 +134,8 @@
 
   .navigation-buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 2.5rem;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .btn {
@@ -143,7 +162,6 @@
     opacity: 0.9;
   }
 
-  /* Estilo para ocultar la navegación en el último paso */
   .no-navigation .navigation-buttons {
     display: none;
   }
@@ -157,7 +175,6 @@
           <div class="step {currentStep === step ? 'active' : ''}">{step}</div>
         {/each}
       </div>
-
       {#if currentStep === 1}
         <Step1 bind:data={formData.personalInfo} on:update={(e) => handleInputChange('personalInfo', e.detail)} />
       {:else if currentStep === 2}

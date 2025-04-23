@@ -30,7 +30,7 @@
 
     .confirmation-card h3 {
         font-size: 1.8rem;
-        color: var(--primary);
+        color: black;
         margin-bottom: 1.5rem;
     }
 
@@ -44,7 +44,7 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        text-align: left;
+        text-align: center;
         font-size: 1.1rem;
     }
 
@@ -75,10 +75,10 @@
 </style>
 
 <div class="step-content">
-    <h2>¡Gracias por tu suscripción!</h2>
+    <h2><i class="fa-solid fa-user"></i>¡Gracias por tu suscripción!</h2>
 
     <div class="confirmation-card">
-        <h3>Resumen de tu suscripción</h3>
+        <h3><strong><i class="fa-solid fa-money-bill-1-wave"></i>Comprobante de tu suscripción<i class="fa-solid fa-money-bill-1-wave"></i></strong></h3>
 
         <div class="summary">
             <p><strong>Nombre:</strong> {formData.personalInfo.name}</p>
@@ -91,7 +91,7 @@
             <p><strong>Servicios Adicionales:</strong> {#if formData.addons.length > 0}{formData.addons.join(', ')}{:else}Ninguno{/if}</p>
         </div>
 
-        <p>Si todo es correcto, ¡estás listo para comenzar! Si necesitas realizar algún cambio, puedes volver atrás.</p>
+        <p>Si todo es correcto, ¡estás listo para comenzar! Si necesitas realizar algún cambio, puedes volver a empezar.</p>
 
         <button class="btn" on:click={() => window.location.reload()}>Volver al Inicio</button>
     </div>
