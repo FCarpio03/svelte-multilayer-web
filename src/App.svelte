@@ -55,35 +55,25 @@
 </script>
 
 <style>
-
   :root {
     --primary: #0044ff;
-    --background: #0044ff;
+    --background: transparent;
     --text: #0044ff;
     --card-bg: #fff;
     --border: #ccc;
     --radius: 1rem;
     --transition: 0.3s ease;
+    --background-image: url("/public/image/background.svg");
+    --background-size: cover;
+    --font-custom: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    src: url("/public/fonts/Ubuntu-Bold.ttf");
     color: var(--text);
-    background: linear-gradient(-45deg, #483EFF, #6258ff, #837dff, #483EFF);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-  }
-
-  @keyframes gradientBG {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+    background-image: url("/public/image/background.svg");
+    background-size: cover;
   }
 
   .app {
@@ -92,9 +82,8 @@
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
-    background: var(--background);
-    animation: gradientBG 15s ease infinite;
-
+    background-image: url("/public/image/background.svg");
+    background-size: cover;
   }
 
   .form-container {

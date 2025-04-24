@@ -97,12 +97,12 @@
     .description-dos{
         color: black;
     }
+
 </style>
 
 <div class="step-content">
     <h2 class="step-title"><i class="fa-solid fa-object-ungroup"></i> Selecciona tu plan</h2>
     <p class="description-dos"><strong><i class="fa-solid fa-book-open-reader"></i>Tienes la opcion de elejir entre 3 planes, el Basico, Estandar y Premium. Despues elije si lo quieres Mensual o Anual.<i class="fa-solid fa-book-open-reader"></i></strong></p>
-
 
     <div class="plans">
         {#each plans as plan}
