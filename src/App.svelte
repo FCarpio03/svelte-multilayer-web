@@ -232,7 +232,7 @@
         {/each}
       </div>
       {#if currentStep === 1}
-        <Step1 bind:data={formData.personalInfo} on:update={(e) => handleInputChange('personalInfo', e.detail)} />
+        <Step1 data={formData.personalInfo} update={(e) => handleInputChange('personalInfo', e.detail)}/>
       {:else if currentStep === 2}
         <Step2 bind:data={formData.plan} on:update={(e) => handleInputChange('plan', e.detail)} />
       {:else if currentStep === 3}
