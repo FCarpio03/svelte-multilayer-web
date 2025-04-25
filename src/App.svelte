@@ -66,6 +66,7 @@
     --background-image: url("/public/image/background.svg");
     --background-size: cover;
     --font-custom: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --position: relative;
   }
 
   body {
@@ -74,6 +75,7 @@
     color: var(--text);
     background-image: url("/public/image/background.svg");
     background-size: cover;
+    position: var(--position);
   }
 
   .app {
@@ -81,9 +83,11 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 1rem;
     background-image: url("/public/image/background.svg");
     background-size: cover;
+    position: relative;
+    min-width: 40vh;
   }
 
   .form-container {
@@ -96,6 +100,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    position: var(--position);
   }
 
   .steps-indicator {
@@ -104,8 +109,8 @@
   }
 
   .step {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: #ddd;
     color: #555;
@@ -153,6 +158,68 @@
 
   .no-navigation .navigation-buttons {
     display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .form-container {
+      padding: 1.5rem;
+      margin: 1rem;
+      max-width: 100%;
+    }
+
+    .btn {
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .step {
+      width: 35px;
+      height: 35px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .app {
+      padding: 1rem;
+    }
+
+    .form-container {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
+
+    .navigation-buttons {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .steps-indicator {
+      gap: 0.5rem;
+    }
+
+    .step {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .form-container {
+      padding: 0.8rem;
+    }
+
+    .btn {
+      font-size: 0.8rem;
+      padding: 0.6rem;
+    }
   }
 </style>
 
