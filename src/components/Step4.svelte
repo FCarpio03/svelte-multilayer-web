@@ -23,14 +23,17 @@
     .step-content {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.2rem;
         color: var(--text);
-        width: 600px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 0.5rem;
     }
 
     h2 {
-        margin: 0;
-        font-size: 2rem;
+        margin: 0 0 1rem 0;
+        font-size: 1.8rem;
         color: var(--primary);
         text-align: center;
     }
@@ -43,15 +46,29 @@
     }
 
     .section h3 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         color: #000000;
+        margin-top: 0;
         margin-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+
+    .section p {
+        margin: 0.5rem 0;
+        color: #333;
     }
 
     .addon {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px dashed #eee;
+    }
+
+    .addon:last-child {
+        border-bottom: none;
     }
 
     .addon span {
@@ -68,6 +85,65 @@
         font-weight: bold;
         text-align: center;
         color: green;
+        background: #f0fff0;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        border: 1px dashed green;
+    }
+
+    @media screen and (max-width: 768px) {
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .section {
+            padding: 1.2rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+        }
+
+        .step-content {
+            gap: 1rem;
+            padding: 0;
+        }
+
+        .section {
+            padding: 1rem;
+            border-radius: 0.8rem;
+        }
+
+        .addon {
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .total {
+            font-size: 1.1rem;
+            padding: 0.8rem;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        .section {
+            padding: 0.8rem;
+        }
+
+        .section h3 {
+            font-size: 1.1rem;
+        }
     }
 </style>
 

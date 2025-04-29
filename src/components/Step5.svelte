@@ -9,13 +9,18 @@
         gap: 2rem;
         color: var(--text);
         align-items: center;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 0.5rem;
     }
 
     h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         color: var(--primary);
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        margin-top: 0;
     }
 
     .confirmation-card {
@@ -24,14 +29,14 @@
         border-radius: 1rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         width: 100%;
-        max-width: 600px;
         text-align: center;
     }
 
     .confirmation-card h3 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: black;
         margin-bottom: 1.5rem;
+        margin-top: 0;
     }
 
     .confirmation-card p {
@@ -43,13 +48,23 @@
     .summary {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        text-align: center;
+        gap: 0.8rem;
+        text-align: left;
         font-size: 1.1rem;
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 0.8rem;
+        margin-bottom: 1.5rem;
     }
 
     .summary p {
         margin: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px dashed #ddd;
+    }
+
+    .summary p:last-child {
+        border-bottom: none;
     }
 
     .summary strong {
@@ -64,13 +79,88 @@
         font-weight: bold;
         background: var(--primary);
         color: white;
-        margin-top: 2rem;
+        margin-top: 1rem;
         cursor: pointer;
         transition: 0.3s ease;
     }
 
     .btn:hover {
         opacity: 0.9;
+    }
+
+    @media screen and (max-width: 768px) {
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        .confirmation-card {
+            padding: 1.5rem;
+        }
+
+        .confirmation-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .summary {
+            padding: 1.2rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-content {
+            gap: 1.5rem;
+            padding: 0;
+        }
+
+        .confirmation-card {
+            padding: 1.2rem;
+            border-radius: 0.8rem;
+        }
+
+        .confirmation-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .summary {
+            padding: 1rem;
+            font-size: 1rem;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .confirmation-card {
+            padding: 1rem;
+        }
+
+        .confirmation-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .summary {
+            padding: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 0.8rem;
+        }
     }
 </style>
 

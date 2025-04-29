@@ -76,6 +76,8 @@
     background-image: url("/public/image/background.svg");
     background-size: cover;
     position: var(--position);
+    margin: 0;
+    padding: 0;
   }
 
   .app {
@@ -87,7 +89,6 @@
     background-image: url("/public/image/background.svg");
     background-size: cover;
     position: relative;
-    min-width: 40vh;
   }
 
   .form-container {
@@ -106,6 +107,8 @@
   .steps-indicator {
     display: flex;
     justify-content: space-between;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
   }
 
   .step {
@@ -128,8 +131,9 @@
 
   .navigation-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
+    margin-top: 1.5rem;
   }
 
   .btn {
@@ -139,6 +143,7 @@
     font-weight: bold;
     font-size: 1rem;
     transition: var(--transition);
+    cursor: pointer;
   }
 
   .btn-back {
@@ -154,6 +159,7 @@
 
   .btn:hover {
     opacity: 0.9;
+    transform: translateY(-2px);
   }
 
   .no-navigation .navigation-buttons {
@@ -173,40 +179,46 @@
     }
 
     .step {
-      width: 35px;
-      height: 35px;
+      width: 50px;
+      height: 50px;
       font-size: 0.9rem;
+    }
+
+    .steps-indicator {
+      max-width: 300px;
     }
   }
 
   @media screen and (max-width: 480px) {
     .app {
-      padding: 1rem;
+      padding: 0.5rem;
     }
 
     .form-container {
       padding: 1rem;
       margin: 0.5rem;
+      border-radius: 0.8rem;
     }
 
     .navigation-buttons {
-      flex-direction: column-reverse;
+      flex-direction: row;
       width: 100%;
     }
 
     .btn {
-      width: 100%;
-      padding: 0.8rem;
+      width: 48%;
+      padding: 0.8rem 0;
       text-align: center;
     }
 
     .steps-indicator {
       gap: 0.5rem;
+      max-width: 250px;
     }
 
     .step {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       font-size: 0.8rem;
     }
   }
@@ -218,7 +230,12 @@
 
     .btn {
       font-size: 0.8rem;
-      padding: 0.6rem;
+      padding: 0.6rem 0;
+    }
+
+    .step {
+      width: 35px;
+      height: 35px;
     }
   }
 </style>
@@ -244,6 +261,8 @@
       <div class="navigation-buttons">
         {#if currentStep > 1}
           <button class="btn btn-back" on:click={prevStep}>Atrás</button>
+        {:else}
+          <div></div>
         {/if}
         {#if currentStep < 4}
           <button class="btn btn-next" on:click={nextStep}>Siguiente</button>
