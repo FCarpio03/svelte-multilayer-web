@@ -32,7 +32,6 @@ npm install
 
 ```
 npm run dev
-
 ```
 Abre tu navegador en la URL que indique Vite (por defecto http://localhost:5173)
 
@@ -51,8 +50,8 @@ Estructura del proyecto:
 ```
 Propósito del proyecto
 
-Este proyecto es ideal para:
-
+Este proyecto es ideal para
+```
 Aprender a estructurar aplicaciones Svelte por capas
 
 Mostrar buenas prácticas de frontend moderno
