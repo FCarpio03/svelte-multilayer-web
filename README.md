@@ -18,20 +18,26 @@ Este repositorio contiene un **sitio web multicapas** desarrollado con **Svelte*
 ## Instalación y uso
 
 1. Clona el repositorio:
-```bash
+```bash 
 git clone https://github.com/FCarpio03/svelte-multilayer-web.git
 cd svelte-multilayer-web
 
+```
 2. Instala dependencias:
-npm install
 
-3. Ejecuta la aplicación en modo desarrollo:
+```
+npm install
+```
+4. Ejecuta la aplicación en modo desarrollo:
+
+```
 npm run dev
 
+```
 Abre tu navegador en la URL que indique Vite (por defecto http://localhost:5173)
 
 Estructura del proyecto:
-
+```
 .
 ├── public/           ← Archivos estáticos
 ├── src/
@@ -42,7 +48,7 @@ Estructura del proyecto:
 ├── package.json
 ├── vite.config.js
 └── README.md
-
+```
 Propósito del proyecto
 
 Este proyecto es ideal para:
